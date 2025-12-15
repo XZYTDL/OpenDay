@@ -8,16 +8,24 @@
     <title></title>
 </head>
 <body>
-
     <template id="o-icon">
         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-circle-icon lucide-circle"><circle cx="12" cy="12" r="10"/></svg>
     </template>
-
     <template id="x-icon">
         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-x-icon lucide-x"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
     </template>
-
-    <!-- <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-minus-icon lucide-minus stroke"><path d="M5 12h14"/></svg> -->
+    
+    <div id="scoreboard">
+        <div class="score-item score-x">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-x"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
+            <span id="x-score">0</span>
+        </div>
+        <div class="score-item score-o">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-circle"><circle cx="12" cy="12" r="10"/></svg>
+            <span id="o-score">0</span>
+        </div>
+    </div>
+    
     <div class="stroke"></div>
     <div id="grid">
         <div class="grid-item" data-index="0"></div>
@@ -30,7 +38,7 @@
         <div class="grid-item" data-index="7"></div>
         <div class="grid-item" data-index="8"></div>
     </div>
-
+    <div id="restart" class="hidden">Restart</div>
     <script src="./js/script.js"></script>
 </body>
 </html>

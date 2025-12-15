@@ -1,0 +1,120 @@
+#grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    translate: -50% -50%;
+
+    gap: var(--padding);
+}
+
+.grid-item {
+    background-color: var(--bg-secondary-color);
+    color: var(--text-color);
+
+    width: var(--cell-size);
+    aspect-ratio: 1;
+    padding: var(--padding);
+    box-shadow: inset 0 0 0 var(--br-size) oklch(from var(--bg-secondary-color) calc(l + 0.1) c h);
+
+    border-radius: var(--br-radius);
+    cursor: pointer;
+
+    overflow: hidden;
+    position: relative;
+    z-index: 1;
+}
+
+.grid-item.clicked:after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    aspect-ratio: 1;
+
+    border-radius: 50%;
+    scale: 0;
+
+    opacity: .25;
+    z-index: 1;
+    animation: doubleScaleUp .5s ease-out forwards;
+}
+
+.grid-item.clicked-x:after {
+    background-color: var(--x-color);
+}
+
+.grid-item.clicked-o:after {
+    background-color: var(--o-color);
+}
+
+
+.grid-item svg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    
+    filter: drop-shadow(.3rem 0 0 rgba(0, 0, 0, .25));
+
+    scale: 0;
+    z-index: 999;
+}
+
+.grid-item svg.lucide-x {
+    color: var(--x-color);
+    animation: scaleXUp .15s ease-out forwards;
+}
+
+.grid-item svg.lucide-circle {
+    color: var(--o-color);
+    animation: scaleOUp .15s ease-out forwards;
+}
+
+.stroke {
+    position: absolute;
+    background-color: oklch(from var(--txt-color) l c h / .75);
+    height: 10px;
+    border-radius: var(--br-radius);
+    z-index: 999;
+    pointer-events: none;
+    display: none;
+    transform-origin: center;
+}
+
+.stroke.show {
+    display: block;
+    animation: strokeGrow .5s ease-out forwards;
+}
+
+@keyframes strokeGrow {
+    from {
+        transform: var(--stroke-transform) scaleX(0);
+    }
+    to {
+        transform: var(--stroke-transform) scaleX(1);
+    }
+}
+
+@keyframes scaleOUp {
+    to {
+        scale: .75;
+    }
+}
+
+@keyframes scaleXUp {
+    to {
+        scale: 1;
+    }
+}
+
+@keyframes doubleScaleUp {
+    to {
+        scale: 2;
+    }
+}

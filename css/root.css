@@ -1,0 +1,18 @@
+:root {
+    --bg-color: oklch(25% 0 0);
+    --bg-secondary-color: oklch(from var(--bg-color) calc(l + 0.07) c h);
+    --txt-color: oklch(90% 0 0);
+
+    --x-color: oklch(52.928% 0.19997 27.548);
+    --o-color: oklch(58.492% 0.13239 244.378);
+
+    --padding: 1rem;
+    --cell-size: 5rem;
+    --br-radius: 1rem;
+    --br-size: 0.3rem;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--txt-color);
+}
